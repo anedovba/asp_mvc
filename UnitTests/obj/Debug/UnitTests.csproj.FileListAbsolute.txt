@@ -32,3 +32,5 @@ D:\ШАГ\Project\ASP\ShoesStoreMVC\ShoesStore\UnitTests\bin\Debug\System.Web.We
 D:\ШАГ\Project\ASP\ShoesStoreMVC\ShoesStore\UnitTests\obj\Debug\UnitTests.csprojResolveAssemblyReference.cache
 D:\ШАГ\Project\ASP\ShoesStoreMVC\ShoesStore\UnitTests\obj\Debug\UnitTests.dll
 D:\ШАГ\Project\ASP\ShoesStoreMVC\ShoesStore\UnitTests\obj\Debug\UnitTests.pdb
+D:\ШАГ\Project\ASP\ShoesStoreMVC\ShoesStore\UnitTests\bin\Debug\EntityFramework.dll
+D:\ШАГ\Project\ASP\ShoesStoreMVC\ShoesStore\UnitTests\bin\Debug\EntityFramework.xml

@@ -1,5 +1,6 @@
-﻿@using Domain.Entities
-@model IEnumerable<Product>
+﻿@using WebUI.Models
+@using WebUI.HtmlHelpers
+@model ProductsListViewModel
 
 
 
@@ -10,7 +11,7 @@
 
 <h2>Список</h2>
 
-@foreach (var p in @Model)
+@foreach (var p in @Model.Products)
 {
     <div>
         <h3>@p.Name</h3>
@@ -20,4 +21,8 @@
     </div>
     <hr />
 }
+
+<div>
+    @Html.PageLinks(Model.PagingInfo, x => Url.Action("List", new { page = x }))
+</div>
 
