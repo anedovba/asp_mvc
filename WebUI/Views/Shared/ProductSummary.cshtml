@@ -1,0 +1,46 @@
+﻿@model Domain.Entities.Product
+
+<div class="col-md-3" style="height:400px">
+    @*<div class="thumbnail" style="height:350px">*@
+    <div class="table-responsive">
+        <table class="table" style="height:100%">
+            <tr style="height:40%">
+                <td>
+                    <img class="img-responsive" style="max-height:30%" src="https://flytothesky.ru/wp-content/uploads/2012/10/%D1%84%D0%BE%D1%82%D0%BE-%D0%B4%D0%BD%D1%8F15.jpg">
+                </td>
+            </tr>
+            <tr style="height:30%">
+                <td>
+                    @*<div class="caption">*@
+                    <h4><strong>@Model.Name</strong></h4>
+                </td>
+            </tr>
+            <tr style="height:10%">
+                <td><h4>@Model.Price.ToString("# $")</h4></td>
+            </tr>
+            <tr style="height:10%">
+                <td><p>@Model.Category</p></td>
+            </tr>
+            <tr style="height:10%;">
+                <td>
+                    <p>
+                        <a href="/book-2.html" class="btn btn-primary" role="button" style="vertical-align:bottom">Details</a>
+                        <a href="/cart/add/2" class="btn btn-default" role="button" id="add-to-cart-btn-2">Add to cart</a>
+                    </p>
+                </td>
+            </tr>
+        </table>
+
+    </div>
+
+
+    <p>@*@p.Description*@</p>
+
+
+    @*</div>*@
+</div>
+
+
+
+
+@*</div>*@
