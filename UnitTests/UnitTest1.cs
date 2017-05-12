@@ -34,7 +34,7 @@ namespace UnitTests
             controller.pageSize = 3;
 
             // Действие (act)
-            ProductsListViewModel result = (ProductsListViewModel)controller.List(2).Model;
+            ProductsListViewModel result = (ProductsListViewModel)controller.List(null, 2).Model;
 
             // Утверждение (assert)
             List<Product> products = result.Products.ToList();
@@ -90,7 +90,7 @@ namespace UnitTests
 
             // Act
             ProductsListViewModel result
-                = (ProductsListViewModel)controller.List(2).Model;
+                = (ProductsListViewModel)controller.List(null, 2).Model;
 
             // Assert
             PagingInfo pageInfo = result.PagingInfo;
@@ -99,5 +99,79 @@ namespace UnitTests
             Assert.AreEqual(pageInfo.TotalItems, 5);
             Assert.AreEqual(pageInfo.TotalPages, 2);
         }
+
+        [TestMethod]
+        public void Can_Filter_Products()
+        {
+            // Организация (arrange)
+            Mock<ProductRepository> mock = new Mock<ProductRepository>();
+            mock.Setup(m => m.Products).Returns(new List<Product>
+    {
+        new Product { ProductId = 1, Name = "Shoes1", Category="Cat1"},
+        new Product { ProductId = 2, Name = "Shoes2", Category="Cat2"},
+        new Product { ProductId = 3, Name = "Shoes3", Category="Cat1"},
+        new Product { ProductId = 4, Name = "Shoes4", Category="Cat2"},
+        new Product { ProductId = 5, Name = "Shoes5", Category="Cat3"}
+    });
+            ProductsController controller = new ProductsController(mock.Object);
+            controller.pageSize = 3;
+
+            // Action
+            List<Product> result = ((ProductsListViewModel)controller.List("Cat2", 1).Model)
+                .Products.ToList();
+
+            // Assert
+            Assert.AreEqual(result.Count(), 2);
+            Assert.IsTrue(result[0].Name == "Shoes2" && result[0].Category == "Cat2");
+            Assert.IsTrue(result[1].Name == "Shoes4" && result[1].Category == "Cat2");
+        }
+
+        [TestMethod]
+        public void Can_Create_Categories()
+        {
+            // Организация - создание имитированного хранилища
+            Mock<ProductRepository> mock = new Mock<ProductRepository>();
+            mock.Setup(m => m.Products).Returns(new List<Product> {
+        new Product { ProductId = 1, Name = "Игра1", Category="Симулятор"},
+        new Product { ProductId = 2, Name = "Игра2", Category="Симулятор"},
+        new Product { ProductId = 3, Name = "Игра3", Category="Шутер"},
+        new Product { ProductId = 4, Name = "Игра4", Category="RPG"},
+    });
+
+            // Организация - создание контроллера
+            NavController target = new NavController(mock.Object);
+
+            // Действие - получение набора категорий
+            List<string> results = ((IEnumerable<string>)target.Menu().Model).ToList();
+
+            // Утверждение
+            Assert.AreEqual(results.Count(), 3);
+            Assert.AreEqual(results[0], "RPG");
+            Assert.AreEqual(results[1], "Симулятор");
+            Assert.AreEqual(results[2], "Шутер");
+        }
+
+        [TestMethod]
+        public void Indicates_Selected_Category()
+        {
+            // Организация - создание имитированного хранилища
+            Mock<ProductRepository> mock = new Mock<ProductRepository>();
+            mock.Setup(m => m.Products).Returns(new Product[] {
+        new Product { ProductId = 1, Name = "Игра1", Category="Симулятор"},
+        new Product { ProductId = 2, Name = "Игра2", Category="Шутер"}
+    });
+
+            // Организация - создание контроллера
+            NavController target = new NavController(mock.Object);
+
+            // Организация - определение выбранной категории
+            string categoryToSelect = "Шутер";
+
+            // Действие
+            string result = target.Menu(categoryToSelect).ViewBag.SelectedCategory;
+
+            // Утверждение
+            Assert.AreEqual(categoryToSelect, result);
+        }   
     }
 }

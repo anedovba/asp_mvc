@@ -26,9 +26,13 @@
         </div>
     </div>
     <div class="row panel">
-        <div id="categories" class="col-xs-3">
-            Сюда добавим контент позже
-        </div>
+        <div id="categories" class="col-sm-3 col-md-2 sidebar" style="margin-top:20px">
+            <ul class="nav nav-sidebar">
+                <li>
+                    @Html.Action("Menu", "Nav")
+                </li>
+                </ul>
+</div>
         <div class="col-xs-8">
             @RenderBody()
         </div>

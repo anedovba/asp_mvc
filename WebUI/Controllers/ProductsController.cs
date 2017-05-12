@@ -19,20 +19,24 @@ namespace WebUI.Controllers
             repository = repo;
         }
 
-        public ViewResult List(int page = 1)
+        public ViewResult List(string category, int page = 1)
         {
             ProductsListViewModel model = new ProductsListViewModel
             {
                 Products = repository.Products
-                    .OrderBy(game => game.ProductId)
+                    .Where(p => category == null || p.Category == category)
+                    .OrderBy(product => product.ProductId)
                     .Skip((page - 1) * pageSize)
                     .Take(pageSize),
                 PagingInfo = new PagingInfo
                 {
                     CurrentPage = page,
                     ItemsPerPage = pageSize,
-                    TotalItems = repository.Products.Count()
-                }
+                    TotalItems = category == null ?
+        repository.Products.Count() :
+        repository.Products.Where(product => product.Category == category).Count()
+                },
+                CurrentCategory = category
             };
             return View(model);
             
