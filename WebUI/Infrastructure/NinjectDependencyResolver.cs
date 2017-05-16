@@ -38,6 +38,15 @@ namespace WebUI.Infrastructure
             // Здесь размещаются привязки
 
             kernel.Bind<ProductRepository>().To<EFPoductRepository>();
+
+            EmailSettings emailSettings = new EmailSettings
+            {
+                WriteAsFile = bool.Parse(ConfigurationManager
+                    .AppSettings["Email.WriteAsFile"] ?? "false")
+            };
+
+            kernel.Bind<IOrderProcessor>().To<EmailOrderProcessor>()
+                .WithConstructorArgument("settings", emailSettings);
         }
     }
 }

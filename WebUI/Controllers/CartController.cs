@@ -13,6 +13,13 @@ namespace WebUI.Controllers
     public class CartController : Controller
     {
         private ProductRepository repository;
+        private IOrderProcessor orderProcessor;
+        public CartController(ProductRepository repo, IOrderProcessor processor)
+        {
+            repository = repo;
+            orderProcessor = processor;
+        }
+
         public ViewResult Index(Cart cart, string returnUrl)
         {
             return View(new CartIndexViewModel
@@ -21,11 +28,7 @@ namespace WebUI.Controllers
                 ReturnUrl = returnUrl
             });
         }
-        public CartController(ProductRepository repo)
-        {
-            repository = repo;
-        }
-
+   
         public RedirectToRouteResult AddToCart(Cart cart, int productId, string returnUrl)
         {
             Product product = repository.Products
@@ -52,6 +55,30 @@ namespace WebUI.Controllers
         public PartialViewResult Summary(Cart cart)
         {
             return PartialView(cart);
+        }
+
+        public ViewResult Checkout()
+        {
+            return View(new ShippingDetails());
+        }
+        [HttpPost]
+        public ViewResult Checkout(Cart cart, ShippingDetails shippingDetails)
+        {
+            if (cart.Lines.Count() == 0)
+            {
+                ModelState.AddModelError("", "Извините, ваша корзина пуста!");
+            }
+
+            if (ModelState.IsValid)
+            {
+                orderProcessor.ProcessOrder(cart, shippingDetails);
+                cart.Clear();
+                return View("Completed");
+            }
+            else
+            {
+                return View(shippingDetails);
+            }
         }
     }
 }
