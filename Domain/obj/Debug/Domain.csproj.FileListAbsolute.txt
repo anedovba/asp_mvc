@@ -20,4 +20,3 @@ D:\ШАГ\Project\ASP\ShoesStoreMVC\ShoesStore\Domain\bin\Debug\EntityFramework.
 D:\ШАГ\Project\ASP\ShoesStoreMVC\ShoesStore\Domain\bin\Debug\EntityFramework.SqlServer.dll
 D:\ШАГ\Project\ASP\ShoesStoreMVC\ShoesStore\Domain\bin\Debug\EntityFramework.xml
 D:\ШАГ\Project\ASP\ShoesStoreMVC\ShoesStore\Domain\bin\Debug\EntityFramework.SqlServer.xml
-D:\ШАГ\Project\ASP\ShoesStoreMVC\ShoesStore\Domain\obj\Debug\Domain.csprojResolveAssemblyReference.cache

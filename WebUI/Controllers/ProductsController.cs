@@ -13,7 +13,7 @@ namespace WebUI.Controllers
     {
         // GET: Products
         private ProductRepository repository;
-        public int pageSize = 8;
+        public int pageSize = 4;
         public ProductsController(ProductRepository repo)
         {
             repository = repo;

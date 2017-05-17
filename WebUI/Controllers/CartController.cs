@@ -80,5 +80,5 @@ namespace WebUI.Controllers
                 return View(shippingDetails);
             }
         }
-    }
+    } 
 }

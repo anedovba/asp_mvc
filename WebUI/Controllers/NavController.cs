@@ -16,15 +16,16 @@ namespace WebUI.Controllers
             repository = repo;
         }
 
-        public PartialViewResult Menu(string category = null)
+        public PartialViewResult Menu(string category = null, bool horizontalNav = false)
         {
             ViewBag.SelectedCategory = category;
 
             IEnumerable<string> categories = repository.Products
-                 .Select(product => product.Category)
-                 .Distinct()
-                 .OrderBy(x => x);
-            return PartialView(categories);
+                .Select(product => product.Category)
+                .Distinct()
+                .OrderBy(x => x);
+
+            return PartialView("FlexMenu", categories);
         }
     }
 }

@@ -20,7 +20,7 @@ namespace Domain.Concrete
         public string ServerName = "smtp.php-academy.kiev.ua";
         public int ServerPort = 587;
         public bool WriteAsFile = true;
-        public string FileLocation = @"d:\ШАГ\Project\ASP\ShoesStoreMVC\game_store_emails";
+        public string FileLocation = @"d:\ШАГ\Project\ASP\ShoesStoreMVC\shoes_store_emails";
     }
     public class EmailOrderProcessor : IOrderProcessor
     {
@@ -58,11 +58,11 @@ namespace Domain.Concrete
                 foreach (var line in cart.Lines)
                 {
                     var subtotal = line.Product.Price * line.Quantity;
-                    body.AppendFormat("{0} x {1} (итого: {2:c}",
+                    body.AppendFormat("{0} x {1} (итого: {2:c}$) \n",
                         line.Quantity, line.Product.Name, subtotal);
                 }
 
-                body.AppendFormat("Общая стоимость: {0:c}", cart.ComputeTotalValue())
+                body.AppendFormat("Общая стоимость: {0:c}$", cart.ComputeTotalValue())
                     .AppendLine("---")
                     .AppendLine("Доставка:")
                     .AppendLine(shippingInfo.Name)

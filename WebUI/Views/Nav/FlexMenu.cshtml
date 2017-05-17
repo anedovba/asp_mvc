@@ -1,0 +1,31 @@
+﻿@model IEnumerable<string>
+
+@{
+    bool horizontal = ((bool)(ViewContext.RouteData.Values["horizontalNav"] ?? false));
+    string wrapperClasses = horizontal ? "" : null;
+}
+
+    @Html.ActionLink("Home", "List", "Products", null,
+    new
+    {
+        @class = horizontal ? "nav navbar-nav" :
+            ""
+    })
+
+    @foreach (var link in Model)
+    {
+        @Html.RouteLink(link, new
+        {
+            controller = "Products",
+            action = "List",
+            category = link,
+            page = 1
+        }, new
+        {
+            @class = (horizontal ? "nav navbar-nav"
+                : "")
+                + (link == ViewBag.SelectedCategory ? " btn-primary" : "")
+        })
+    }
+
+
