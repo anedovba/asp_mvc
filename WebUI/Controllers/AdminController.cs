@@ -8,6 +8,7 @@ using Domain.Entities;
 
 namespace WebUI.Controllers
 {
+    [Authorize]
     public class AdminController : Controller
     {
         ProductRepository repository;
