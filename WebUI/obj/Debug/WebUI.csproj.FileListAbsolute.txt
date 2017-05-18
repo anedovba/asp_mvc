@@ -75,3 +75,9 @@ D:\шаг\ShoeStoreMVC\WebUI\bin\ru\System.Web.Webpages.Deployment.resources.dll
 D:\шаг\ShoeStoreMVC\WebUI\bin\ru\System.Web.Webpages.Razor.resources.dll
 D:\шаг\ShoeStoreMVC\WebUI\bin\ru\System.Web.Helpers.resources.dll
 D:\шаг\ShoeStoreMVC\WebUI\bin\ru\System.Web.Mvc.resources.dll
+D:\ШАГ\Project\ASP\ShoesStoreMVC\ShoesStore\WebUI\bin\ru\System.Web.Razor.resources.dll
+D:\ШАГ\Project\ASP\ShoesStoreMVC\ShoesStore\WebUI\bin\ru\System.Web.Webpages.resources.dll
+D:\ШАГ\Project\ASP\ShoesStoreMVC\ShoesStore\WebUI\bin\ru\System.Web.Webpages.Deployment.resources.dll
+D:\ШАГ\Project\ASP\ShoesStoreMVC\ShoesStore\WebUI\bin\ru\System.Web.Webpages.Razor.resources.dll
+D:\ШАГ\Project\ASP\ShoesStoreMVC\ShoesStore\WebUI\bin\ru\System.Web.Helpers.resources.dll
+D:\ШАГ\Project\ASP\ShoesStoreMVC\ShoesStore\WebUI\bin\ru\System.Web.Mvc.resources.dll
