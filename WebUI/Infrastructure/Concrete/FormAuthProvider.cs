@@ -7,8 +7,7 @@ using WebUI.Infrastructure.Abstract;
 
 namespace WebUI.Infrastructure.Concrete
 {
-    public class FormAuthProvider
-    {
+   
         public class FormAuthProvider : IAuthProvider
         {
             public bool Authenticate(string username, string password)
@@ -19,5 +18,5 @@ namespace WebUI.Infrastructure.Concrete
                 return result;
             }
         }
-    }
+    
 }

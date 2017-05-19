@@ -5,8 +5,11 @@ using System.Web;
 using System.Web.Mvc;using System.Web.Mvc;
 using WebUI.Infrastructure.Abstract;
 using WebUI.Models;
+using System.Web.Mvc;
+using WebUI.Infrastructure.Abstract;
+using WebUI.Models;
 
-namespace WebUI.Controllers
+namespace GameStore.WebUI.Controllers
 {
     public class AccountController : Controller
     {
@@ -42,7 +45,5 @@ namespace WebUI.Controllers
                 return View();
             }
         }
-	}
-}
     }
 }
