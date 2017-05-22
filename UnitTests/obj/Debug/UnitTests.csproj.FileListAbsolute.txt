@@ -34,3 +34,9 @@ D:\ШАГ\Project\ASP\ShoesStoreMVC\ShoesStore\UnitTests\obj\Debug\UnitTests.dll
 D:\ШАГ\Project\ASP\ShoesStoreMVC\ShoesStore\UnitTests\obj\Debug\UnitTests.pdb
 D:\ШАГ\Project\ASP\ShoesStoreMVC\ShoesStore\UnitTests\bin\Debug\EntityFramework.dll
 D:\ШАГ\Project\ASP\ShoesStoreMVC\ShoesStore\UnitTests\bin\Debug\EntityFramework.xml
+D:\ШАГ\Project\ASP\ShoesStoreMVC\ShoesStore\UnitTests\bin\Debug\ru\System.Web.Helpers.resources.dll
+D:\ШАГ\Project\ASP\ShoesStoreMVC\ShoesStore\UnitTests\bin\Debug\ru\System.Web.Mvc.resources.dll
+D:\ШАГ\Project\ASP\ShoesStoreMVC\ShoesStore\UnitTests\bin\Debug\ru\System.Web.Razor.resources.dll
+D:\ШАГ\Project\ASP\ShoesStoreMVC\ShoesStore\UnitTests\bin\Debug\ru\System.Web.WebPages.resources.dll
+D:\ШАГ\Project\ASP\ShoesStoreMVC\ShoesStore\UnitTests\bin\Debug\ru\System.Web.WebPages.Deployment.resources.dll
+D:\ШАГ\Project\ASP\ShoesStoreMVC\ShoesStore\UnitTests\bin\Debug\ru\System.Web.WebPages.Razor.resources.dll

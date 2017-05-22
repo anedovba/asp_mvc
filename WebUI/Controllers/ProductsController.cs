@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using Domain.Abstract;
 using WebUI.Models;
+using Domain.Entities;
 
 
 namespace WebUI.Controllers
@@ -41,5 +42,20 @@ namespace WebUI.Controllers
             return View(model);
             
         }
+
+        public FileContentResult GetImage(int productId)
+        {
+            Product product = repository.Products
+                .FirstOrDefault(g => g.ProductId == productId);
+
+            if (product != null)
+            {
+                return File(product.ImageData, product.ImageMimeType);
+            }
+            else
+            {
+                return null;
+            }
+        }
+	}
     }
-}
